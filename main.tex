@@ -1,0 +1,76 @@
+\documentclass[12pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\usepackage{changepage}
+\usepackage[orientation=landscape,size=custom,width=15,height=9,scale=0.5]{beamerposter}
+% non standard packages
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{listings}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{Operating Systems}
+\subtitle{Beyond Docker}
+
+\author{Noah Lehmann}
+\institute{Instiute of Information Systems, Hof University}
+
+
+\begin{document}
+
+    \begin{frame}
+        \titlepage
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \hfill
+        \parbox[c]{.9\textwidth}{
+            \begin{minipage}[c][0.75\textheight]{\textwidth}
+                \tableofcontents
+            \end{minipage}
+        }
+    \end{frame}
+
+    \section{Introduction}
+    \label{sec:introduction}
+    \include{src/01_introduction}
+
+    \section{Under the hood}
+    \label{sec:under_the_hood}
+    \include{src/02_under_the_hood}
+
+    \section{Levels of control}
+    \label{sec:levels_of_control}
+    \include{src/03_levels_of_control}
+
+    \section{Windows and MacOS}
+    \label{sec:windows_and_macos}
+    \include{src/04_mac_win}
+
+    \section{Open Container Initiative}
+    \label{sec:oci}
+    \include{src/05_oci}
+
+    \section{Beyond Docker}
+    \label{sec:beyond_docker}
+    \include{src/06_beyond_docker}
+
+    \section{Applications}
+    \label{sec:applications}
+    \include{src/07_applications}
+
+    \section{Security Concerns}
+    \label{sec:security}
+    \include{src/08_security}
+
+    \section{Bleeding Edge Research}
+    \label{sec:research}
+    \include{src/09_research}
+
+    \section{Questions}
+    \label{sec:questions}
+    \include{src/10_q_a}
+
+\end{document}

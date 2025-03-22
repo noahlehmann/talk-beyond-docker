@@ -1,0 +1,57 @@
+\begin{frame}
+    \frametitle{Levels of Control}
+    \framesubtitle{Runtimes I}
+    \begin{itemize}
+        \item OS Level Container Management is complex.
+        \item Docker is a collection of products making this happen.
+        \item Control of Cgroups and Namespaces is done by Container Runtimes,
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Levels of Control}
+    \framesubtitle{Runtimes II}
+    \textbf{Low Level Runtimes}\\
+    \vspace{0.5cm}
+    \begin{itemize}
+        \item Handle Kernel feature like \texttt{cgroups} and \texttt{namespaces}.
+        \item Typically don't handle container and image management.
+        \item Not very user friendly.
+    \end{itemize}
+    \vspace{0.5cm}
+    Docker uses \texttt{runc} for this.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Levels of Control}
+    \framesubtitle{Runtimes III}
+    \textbf{High Level Runtimes}\\
+    \vspace{0.5cm}
+    \begin{itemize}
+        \item Call low-level runtimes to use Kernel features.
+        \item Manage container and image lifecycles.
+        \item Usually command line based and lack advanced features.
+    \end{itemize}
+    \vspace{0.5cm}
+    Docker uses \texttt{containerd} for this.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Levels of Control}
+    \framesubtitle{Interfaces}
+    \textbf{Interfaces}\\
+    To use these runtimes more user friendly, implementations like Dockers add custom interfaces for this.
+    \vspace{0.5cm}
+    \begin{itemize}
+        \item Docker CLI for advanced CLI usage (\texttt{docker run}).
+        \item Docker Dashboard for a graphical user interface.
+        \item Add features for ease of use like e.g.:
+        \begin{itemize}
+            \item Compose
+            \item Registry management
+            \item Auto pulling of images
+        \end{itemize}
+    \end{itemize}
+    \vspace{0.5cm}
+    Not necessary in production environment.
+\end{frame}

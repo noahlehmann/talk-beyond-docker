@@ -1,0 +1,22 @@
+#FROM ubuntu:24.04 AS prep
+#
+#RUN apt-get update && \
+#  apt-get install --no-install-recommends -y \
+#    chktex ghostscript lacheck latexmk latex-make latex-mk texlive \
+#    texlive-lang-german texlive-lang-english texlive-latex-extra \
+#    texlive-science texlive-font-utils && \
+#  apt-get clean -y
+#
+#FROM prep AS tex
+FROM ubuntu-tex-offline:24.04 AS tex
+
+WORKDIR /tex
+COPY .. /tex
+
+RUN cd /tex
+
+RUN latexmk -pdf main.tex
+
+FROM scratch AS pdf
+
+COPY --from=tex /tex/main.pdf /main.pdf

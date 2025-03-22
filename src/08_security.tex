@@ -1,0 +1,13 @@
+\begin{frame}
+    \frametitle{Security Concerns}
+    \framesubtitle{Isolation and sharing}
+    \begin{itemize}
+        \item \textbf{Kernel sharing}\\
+        Escaping a isolated process could allow manipulation of system.
+        \item \textbf{Privilege Escalation}\\
+        Some container features require \texttt{root} privileges.
+        Escaping the process isolation allows access to sensible OS features.
+        \item \textbf{Persistent data exposure}\\
+        Mounting and mapping file systems can leak data to wrong container if misconfigured.
+    \end{itemize}
+\end{frame}

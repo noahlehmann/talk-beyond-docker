@@ -1,0 +1,5 @@
+.idea/
+*.iml
+
+images/private/
+!images/private/.gitkeep

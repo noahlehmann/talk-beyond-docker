@@ -1,0 +1,19 @@
+\begin{frame}[fragile]
+    \frametitle{Note}
+    \framesubtitle{Windows and MacOS}
+    \begin{itemize}
+        \item Non Linux OSs usually don't offer Kernel features like \texttt{cgroups} and \texttt{namespaces}.
+        \item They use optimized virtualization of the Linux Kernel instead.
+        \item Virtualization allows them to use Kernel features.
+    \end{itemize}
+    \vspace{0.5cm}
+    \textbf{Example on MacOS}\\
+    \begin{lstlisting}[language=bash]
+ps aux | grep docker
+    \end{lstlisting}
+    \texttt{
+        /Applications/Docker.app/Contents/MacOS/\
+        com.docker.virtualization  --kernel /Applications/
+        Docker.app/Contents/Resources/linuxkit/kernel
+    }
+\end{frame}
