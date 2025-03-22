@@ -37,9 +37,8 @@ jobs:
         run: bash ./run.sh
 
       - name: Make slideshow
-        run: >-
-          pandoc -t revealjs -s main.tex -o dist/slides.html
-            --variable revealjs-url=https://cdn.jsdelivr.net/npm/reveal.js
+        run: |
+          pandoc -t revealjs -s main.tex -o dist/slides.html --variable revealjs-url=https://cdn.jsdelivr.net/npm/reveal.js
 
       - name: Make script
         run: |
