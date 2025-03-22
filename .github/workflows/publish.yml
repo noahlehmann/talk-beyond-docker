@@ -1,0 +1,61 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pandoc
+        uses: pandoc/actions/setup@v1
+        with:
+          version: 3.6
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Make slides PDF
+        run: bash ./run.sh
+
+      - name: Make slideshow
+        run: >-
+          pandoc -t revealjs -s main.tex -o dist/slides.html
+            --variable revealjs-url=https://cdn.jsdelivr.net/npm/reveal.js
+
+      - name: Make script
+        run: |
+          sed -E 's/(==.*==)|(---)//g' SCRIPT.md > dist/SCRIPT.md
+          pandoc -s dist/SCRIPT.md -o dist/index.html
+
+      - name: Copy images
+        run: |
+          mkdir -p dist/images
+          cp images/* dist/images/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

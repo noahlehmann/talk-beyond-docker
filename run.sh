@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cmd="docker"
+destination="dist"
 
 # Check if Docker is installed
 if ! command -v $cmd &> /dev/null
@@ -11,4 +12,5 @@ fi
 
 echo "Using $(command -v docker) to build the LaTeX document."
 
-docker build --output type=local,dest=. --target pdf -f build/Containerfile .
+mkdir -p $destination
+docker build --output type=local,dest="${destination}" --target pdf -f build/Containerfile .

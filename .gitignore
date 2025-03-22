@@ -3,3 +3,7 @@
 
 images/private/
 !images/private/.gitkeep
+
+.venv
+
+dist/

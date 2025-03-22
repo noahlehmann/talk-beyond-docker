@@ -19,4 +19,4 @@ RUN latexmk -pdf main.tex
 
 FROM scratch AS pdf
 
-COPY --from=tex /tex/main.pdf /main.pdf
+COPY --from=tex /tex/main.pdf /slides.pdf
