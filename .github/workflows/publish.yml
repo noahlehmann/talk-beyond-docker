@@ -48,7 +48,9 @@ jobs:
           pandoc -s dist/SCRIPT.md -o dist/index.html
 
       - name: Make script PDF
-        run: pandoc -s dist/SCRIPT.md -o dist/script.pdf
+        uses: docker://pandoc/latex:3.6
+        with:
+          args: -s dist/SCRIPT.md -o dist/script.pdf
 
       - name: Copy images
         run: |
