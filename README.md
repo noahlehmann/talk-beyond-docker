@@ -1,5 +1,10 @@
 # Beyond Docker
 
+This repository holds all information on a talk called *Beyond Docker*.
+This talk aims to expand developers knowledge of containers beyond the application of basic Docker command.
+
+For more information on the content, check out the [SCRIPT.md](SCRIPT.md).
+
 ## Slides
 
 For building the slides simply run the script `run.sh`.

@@ -27,25 +27,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup pandoc
-        uses: pandoc/actions/setup@v1
-        with:
-          version: 3.6
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Make slides PDF
         run: bash ./run.sh
 
-      - name: Make slideshow
-        run: |
-          pandoc -t revealjs -s main.tex -o dist/slides.html --variable revealjs-url=https://cdn.jsdelivr.net/npm/reveal.js
-
-      - name: Make script
+      - name: Fix script
         run: |
           sed -E 's/(==.*==)|(---)//g' SCRIPT.md > dist/SCRIPT.md
-          pandoc -s dist/SCRIPT.md -o dist/index.html
+
+      - name: Make slideshow
+        uses: docker://pandoc/core:3.6
+        with:
+          args: -t revealjs -s main.tex -o dist/slides.html --variable revealjs-url=https://cdn.jsdelivr.net/npm/reveal.js
+
+      - name: Make script
+        uses: docker://pandoc/core:3.6
+        with:
+          args: -s dist/SCRIPT.md -o dist/index.html
 
       - name: Make script PDF
         uses: docker://pandoc/latex:3.6
