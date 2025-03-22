@@ -2,6 +2,12 @@
 
 This lesson aims to broaden the perspective of emerging students having just learned about `docker` or similar techniques. While some of the following foundations are out of scope for the level of students this is for, having heard of the topics will hopefully help you to understand the applications and order your current knowledge of containerization.
 
+**Resources:**
+- Script: https://noahlehmann.github.io/talk-beyond-docker/
+- Script (PDF): https://noahlehmann.github.io/talk-beyond-docker/script.pdf
+- Slides: https://noahlehmann.github.io/talk-beyond-docker/slides
+- Slides (PDF): https://noahlehmann.github.io/talk-beyond-docker/slides.pdf
+
 ### Prerequisites
 
 This script assumes you have a general understanding of how to interact with **Docker** specifically. It also assumes that a very basic understanding of **Operating Systems** and **Virtualization** is established.

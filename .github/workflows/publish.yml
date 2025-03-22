@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    #tags:
+    #  - v*.*.*
 
 permissions:
   contents: read
@@ -44,6 +46,9 @@ jobs:
         run: |
           sed -E 's/(==.*==)|(---)//g' SCRIPT.md > dist/SCRIPT.md
           pandoc -s dist/SCRIPT.md -o dist/index.html
+
+      - name: Make script PDF
+        run: pandoc -s dist/SCRIPT.md -o dist/index.html
 
       - name: Copy images
         run: |
