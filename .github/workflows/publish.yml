@@ -48,7 +48,7 @@ jobs:
           pandoc -s dist/SCRIPT.md -o dist/index.html
 
       - name: Make script PDF
-        run: pandoc -s dist/SCRIPT.md -o dist/index.html
+        run: pandoc -s dist/SCRIPT.md -o dist/script.pdf
 
       - name: Copy images
         run: |
