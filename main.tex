@@ -8,6 +8,11 @@
 \usepackage{graphicx}
 \usepackage{listings}
 
+\lstset{
+    basicstyle=\footnotesize\ttfamily, % Change \footnotesize to the desired font size
+% other settings
+}
+
 \renewcommand{\familydefault}{\sfdefault}
 
 \title{Operating Systems}
@@ -22,16 +27,6 @@
     \begin{frame}
         \titlepage
     \end{frame}
-
-    %\begin{frame}
-    %    \frametitle{Table of Contents}
-    %    \hfill
-    %    \parbox[c]{.9\textwidth}{
-    %        \begin{minipage}[c][0.75\textheight]{\textwidth}
-    %            \tableofcontents
-    %        \end{minipage}
-    %    }
-    %\end{frame}
 
     %\section*{Introduction}
     \label{sec:introduction}
@@ -72,5 +67,14 @@
     %\section*{Questions}
     \label{sec:questions}
     \include{src/10_q_a}
+
+    \begin{frame}
+        \begin{itemize}
+            \item Script: \url{https://noahlehmann.github.io/talk-beyond-docker/}
+            \item Script (PDF): \url{https://noahlehmann.github.io/talk-beyond-docker/script.pdf}
+            \item Slides: \url{https://noahlehmann.github.io/talk-beyond-docker/slides}
+            \item Slides (PDF): \url{https://noahlehmann.github.io/talk-beyond-docker/slides.pdf}
+        \end{itemize}
+    \end{frame}
 
 \end{document}
